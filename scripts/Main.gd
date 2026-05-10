@@ -8,7 +8,7 @@ const BarrierScene = preload("res://scripts/Barrier.gd")
 enum WorldState {STABLE, VULNERABLE, CRISIS, LIMBO, LOST}
 
 var stages := CivilizationData.get_stages()
-var branches: Array[String] = CivilizationData.get_branches()
+var branches: Array = CivilizationData.get_branches()
 var stage_index := 2
 var branch: String = branches[0]
 var world_state := WorldState.STABLE
