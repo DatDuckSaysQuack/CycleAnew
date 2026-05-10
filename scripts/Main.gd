@@ -8,9 +8,9 @@ const BarrierScene = preload("res://scripts/Barrier.gd")
 enum WorldState {STABLE, VULNERABLE, CRISIS, LIMBO, LOST}
 
 var stages := CivilizationData.get_stages()
-var branches := CivilizationData.get_branches()
+var branches: Array[String] = CivilizationData.get_branches()
 var stage_index := 2
-var branch := branches[0]
+var branch: String = branches[0]
 var world_state := WorldState.STABLE
 var conflict := 25.0
 var houses_built := 0
@@ -52,7 +52,7 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if world_state == WorldState.CRISIS:
-			var p := ray_to_ground(event.position)
+			var p = ray_to_ground(event.position)
 			if p != null:
 				place_barrier(p)
 
